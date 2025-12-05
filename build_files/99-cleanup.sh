@@ -27,15 +27,6 @@ EOF
 # disable uupd checking for distrobox updates
 sed -i 's|uupd|$ --disable-module-distrobox' /usr/lib/systemd/uupd.service
 
-# disable akmods autogen on update
-systemctl disable akmods-keygen@akmods-keygen.service
-systemctl mask akmods-keygen@akmods-keygen.service
-systemctl disable akmods-keygen.target
-systemctl mask akmods-keygen.target
-
-# enable nvidia container toolkit CDI autogen
-systemctl enable nvctk-cdi.service
-
 # enable system daemon for supergfxctl
 systemctl enable supergfxd.service
 

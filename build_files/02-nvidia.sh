@@ -7,7 +7,8 @@ set -xeuo pipefail
 
 KERNEL_VERSION="$(find "/usr/lib/modules" -maxdepth 1 -type d ! -path "/usr/lib/modules" -exec basename '{}' ';' | sort | tail -n 1)"
 
-# uses fedora-nvidia from negativo17
+dnf config-manager addrepo --from-repofile=https://negativo17.org/repos/fedora-nvidia.repo
+dnf config-manager setopt fedora-nvidia.enabled=0
 sed -i '/^enabled=/a\priority=90' /etc/yum.repos.d/fedora-nvidia.repo
 
 dnf -y install --enablerepo=fedora-nvidia akmod-nvidia
@@ -20,6 +21,10 @@ cat /var/cache/akmods/nvidia/*.failed.log || true
 dnf -y install --enablerepo=fedora-nvidia \
     nvidia-driver-cuda libnvidia-fbc libva-nvidia-driver nvidia-driver nvidia-modprobe nvidia-persistenced nvidia-settings
 
+dnf config-manager addrepo --from-repofile=https://nvidia.github.io/libnvidia-container/stable/rpm/nvidia-container-toolkit.repo
+dnf config-manager setopt nvidia-container-toolkit.enabled=0
+dnf config-manager setopt nvidia-container-toolkit.gpgcheck=1
+
 dnf -y install --enablerepo=nvidia-container-toolkit \
     nvidia-container-toolkit
 
@@ -27,12 +32,12 @@ curl --retry 3 -L https://raw.githubusercontent.com/NVIDIA/dgx-selinux/master/bi
 semodule -i nvidia-container.pp
 rm -f nvidia-container.pp
 
-tee /usr/lib/modprobe.d/02-nouveau-blacklist.conf <<'EOF'
+tee /usr/lib/modprobe.d/00-nouveau-blacklist.conf <<'EOF'
 blacklist nouveau
 options nouveau modeset=0
 EOF
 
-tee /usr/lib/bootc/kargs.d/02-nvidia.toml <<'EOF'
+tee /usr/lib/bootc/kargs.d/00-nvidia.toml <<'EOF'
 kargs = ["rd.driver.blacklist=nouveau", "modprobe.blacklist=nouveau", "nvidia-drm.modeset=1"]
 EOF
 
@@ -48,9 +53,17 @@ tee /usr/lib/systemd/system/nvctk-cdi.service <<'EOF'
 Description=nvidia container toolkit CDI auto-generation
 ConditionFileIsExecutable=/usr/bin/nvidia-ctk
 After=local-fs.target
+
 [Service]
 Type=oneshot
 ExecStart=/usr/bin/nvidia-ctk cdi generate --output=/etc/cdi/nvidia.yaml
+
 [Install]
 WantedBy=multi-user.target
 EOF
+
+systemctl enable nvctk-cdi.service
+systemctl disable akmods-keygen@akmods-keygen.service
+systemctl mask akmods-keygen@akmods-keygen.service
+systemctl disable akmods-keygen.target
+systemctl mask akmods-keygen.target

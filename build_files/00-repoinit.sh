@@ -14,15 +14,6 @@ dnf -y copr disable secureblue/selinux-policy
 dnf -y config-manager addrepo --from-repofile=https://negativo17.org/repos/fedora-multimedia.repo
 dnf -y config-manager setopt fedora-multimedia.enabled=0
 
-# negativo17 fedora-nvidia
-dnf -y config-manager addrepo --from-repofile=https://negativo17.org/repos/fedora-nvidia.repo
-dnf -y config-manager setopt fedora-nvidia.enabled=0
-
-# nvidia container toolkit
-dnf -y config-manager addrepo --from-repofile=https://nvidia.github.io/libnvidia-container/stable/rpm/nvidia-container-toolkit.repo
-dnf -y config-manager setopt nvidia-container-toolkit.enabled=0
-dnf -y config-manager setopt nvidia-container-toolkit.gpgcheck=1
-
 # trivalent
 dnf -y config-manager addrepo --from-repofile=https://repo.secureblue.dev/secureblue.repo
 dnf -y config-manager setopt secureblue.enabled=0
