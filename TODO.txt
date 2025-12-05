@@ -1,0 +1,6 @@
+install cosign from github
+
+move to fedora-bootc
+add proton vpn
+add niri
+clarify this is personal use only
