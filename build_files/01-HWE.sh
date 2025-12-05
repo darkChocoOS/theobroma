@@ -25,7 +25,7 @@ dnf -y --enablerepo copr:copr.fedorainfracloud.org:bieszczaders:kernel-cachyos-a
 
 
 # asus tools
-dnf -y install --enablerepo terra-release \
+dnf -y install --enablerepo terra \
   asusctl \
   asusctl-rog-gui \
   supergfxctl

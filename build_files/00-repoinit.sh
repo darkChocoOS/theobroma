@@ -29,7 +29,7 @@ dnf -y config-manager setopt secureblue.enabled=0
 
 # terra
 dnf -y install --nogpgcheck --repofrompath 'terra,https://repos.fyralabs.com/terra$releasever' terra-release
-dnf -y config-manager setopt terra-release.enabled=0
+dnf -y config-manager setopt terra.enabled=0
 
 # ublue packages
 # TODO: move away from these once possible
