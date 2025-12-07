@@ -2,6 +2,9 @@
 
 set -eoux pipefail
 
+# needed for managing extra repositories
+dnf -y install dnf5-plugins
+
 # cachyos kernel
 dnf -y copr enable bieszczaders/kernel-cachyos
 dnf -y copr disable bieszczaders/kernel-cachyos

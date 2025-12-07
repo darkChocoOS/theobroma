@@ -1,4 +1,4 @@
-install cosign from github
+figure out wtf is up with nvidia
 
 move to fedora-bootc
 add proton vpn

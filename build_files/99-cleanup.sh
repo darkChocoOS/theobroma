@@ -27,24 +27,26 @@ EOF
 # disable uupd checking for distrobox updates
 sed -i 's|uupd|$ --disable-module-distrobox' /usr/lib/systemd/uupd.service
 
-# enable system daemon for supergfxctl
-systemctl enable supergfxd.service
-
-# enable update timers for brew and system
-systemctl enable brew-setup.service
-systemctl enable uupd.timer
-
-# add flathub repo for eventual application
 mkdir -p /etc/flatpak/remotes.d/
 curl --retry 3 -Lo /etc/flatpak/remotes.d/flathub.flatpakrepo https://dl.flathub.org/repo/flathub.flatpakrepo
 
-# fuck off fedora flatpaks
+systemctl enable timesyncd
+systemctl enable resolved.service
+systemctl preset resolved.service
+systemctl enable bootc-fetch-apply-updates
+systemctl enable supergfxd.service
+systemctl enable brew-setup.service
+systemctl enable uupd.timer
+systemctl enable auditd
+systemctl enable firewalld
+systemctl enable input-remapper.service
+systemctl enable gdm.service
+systemctl enable gnome-keyring-daemon.socket
+systemctl enable gnome-keyring-daemon.service
+
 rm -rf /usr/lib/systemd/system/flatpak-add-fedora-repos.service
 systemctl enable flatpak-add-flathub-repos.service
-
-# enable flatpak preinstall service
 systemctl enable flatpak-preinstall.service
-
 
 KERNEL_VERSION="$(find "/usr/lib/modules" -maxdepth 1 -type d ! -path "/usr/lib/modules" -exec basename '{}' ';' | sort | tail -n 1)"
 export DRACUT_NO_XATTR=1
