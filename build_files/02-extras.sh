@@ -18,22 +18,15 @@ dnf -y install \
   brightnessctl \
   ddcutil \
   fastfetch \
-  fdk-aac \
-  fzf \
   gamescope \
   glycin-thumbnailer \
   gnome-keyring \
-  gnome-keyring=pam \
+  gnome-keyring-pam \
   input-remapper \
   orca \
   nautilus \
-  gvfs-mtp \
-  gvfs-smb \
   gvfs-nfs \
   glibc-all-langpacks \
-  pipewire \
-  steam-devices \
-  unzip \
   wl-clipboard \
   xdg-desktop-portal-gnome
 
