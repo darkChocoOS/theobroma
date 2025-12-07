@@ -90,10 +90,11 @@ dnf -y install --enablerepo copr:copr.fedorainfracloud.org:ublue-os:packages \
 
 dnf5 config-manager setopt copr:copr.fedorainfracloud.org:ublue-os:flatpak-test.priority=90
 # uses ublue-os:flatpak-test copr
-dnf -y install --enablerepo copr:copr.fedorainfracloud.org:ublue-os:flatpak-test \
+dnf -y distro-sync --from-repo=copr:copr.fedorainfracloud.org:ublue-os:flatpak-test \
   flatpak \
-  flatpak-libs \
   flatpak-session-helper
+dnf -y install --enablerepo copr:copr.fedorainfracloud.org:ublue-os:flatpak-test \
+  flatpak-libs
 
 rpm -q flatpak --qf "%{NAME} %{VENDOR}\n" | grep ublue-os
 
