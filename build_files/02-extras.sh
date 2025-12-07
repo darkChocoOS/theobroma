@@ -34,8 +34,8 @@ dnf -y install \
   pipewire \
   steam-devices \
   unzip \
-  wl-clipbiard \
-  xdg-gnome-desktop-portal
+  wl-clipboard \
+  xdg-desktop-portal-gnome
 
 # install codecs from negativo so they aren't crippled
 dnf5 config-manager setopt fedora-multimedia.priority=90
