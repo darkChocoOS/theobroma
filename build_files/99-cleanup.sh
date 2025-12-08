@@ -30,9 +30,9 @@ sed -i 's|uupd|& --disable-module-distrobox|' /usr/lib/systemd/system/uupd.servi
 mkdir -p /etc/flatpak/remotes.d/
 curl --retry 3 -Lo /etc/flatpak/remotes.d/flathub.flatpakrepo https://dl.flathub.org/repo/flathub.flatpakrepo
 
-systemctl enable timesyncd
-systemctl enable resolved.service
-systemctl preset resolved.service
+systemctl enable systemd-timesyncd
+systemctl enable systemd-resolved.service
+systemctl preset systemd-resolved.service
 systemctl enable bootc-fetch-apply-updates
 systemctl enable supergfxd.service
 systemctl enable brew-setup.service
