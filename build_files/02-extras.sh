@@ -35,7 +35,6 @@ dnf5 config-manager setopt fedora-multimedia.priority=0
 dnf -y distro-sync --from-repo=fedora-multimedia \
   libheif \
   libva \
-  intel-vpl-gpu-rt \
   intel-mediasdk \
   mesa-dri-drivers \
   mesa-filesystem \
