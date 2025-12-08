@@ -25,7 +25,7 @@ s|^DEFAULT_HOSTNAME=.*|DEFAULT_HOSTNAME="theobroma"|
 EOF
 
 # disable uupd checking for distrobox updates
-sed -i 's|uupd|$ --disable-module-distrobox' /usr/lib/systemd/uupd.service
+sed -i 's|uupd|& --disable-module-distrobox|' /usr/lib/systemd/system/uupd.service
 
 mkdir -p /etc/flatpak/remotes.d/
 curl --retry 3 -Lo /etc/flatpak/remotes.d/flathub.flatpakrepo https://dl.flathub.org/repo/flathub.flatpakrepo
