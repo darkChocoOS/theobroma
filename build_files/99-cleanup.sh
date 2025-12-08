@@ -41,8 +41,8 @@ systemctl enable auditd
 systemctl enable firewalld
 systemctl enable input-remapper.service
 systemctl enable gdm.service
-systemctl enable gnome-keyring-daemon.socket
-systemctl enable gnome-keyring-daemon.service
+systemctl enable --global gnome-keyring-daemon.socket
+systemctl enable --global gnome-keyring-daemon.service
 
 rm -rf /usr/lib/systemd/system/flatpak-add-fedora-repos.service
 systemctl enable flatpak-add-flathub-repos.service
