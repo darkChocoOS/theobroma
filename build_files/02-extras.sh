@@ -59,7 +59,7 @@ dnf -y install --enablerepo fedora-multimedia \
   libcamera-ipa \
   libheif \
   libcamera-tools \
-  libcamra-v4l2 \
+  libcamera-v4l2 \
   libfdk-aac \
   libimobiledevice-utils \
   libjxl \
