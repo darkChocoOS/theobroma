@@ -21,6 +21,10 @@ dnf -y config-manager setopt fedora-multimedia.enabled=0
 dnf -y config-manager addrepo --from-repofile=https://repo.secureblue.dev/secureblue.repo
 dnf -y config-manager setopt secureblue.enabled=0
 
+# trivalent subresource filter
+dnf -y copr enable secureblue/trivalent
+dnf -y copr disable secureblue/trivalent
+
 # terra
 dnf -y install --nogpgcheck --repofrompath 'terra,https://repos.fyralabs.com/terra$releasever' terra-release
 dnf -y config-manager setopt terra.enabled=0
