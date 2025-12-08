@@ -7,6 +7,7 @@ dnf -y install \
   distrobox \
   flatpak-builder \
   foundry \
+  gcc-c++ \
   git \
   libvirt \
   libvirt-daemon-kvm \

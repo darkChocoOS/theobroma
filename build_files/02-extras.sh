@@ -30,8 +30,24 @@ dnf -y install \
   wl-clipboard \
   xdg-desktop-portal-gnome
 
-# install codecs from negativo so they aren't crippled
-dnf5 config-manager setopt fedora-multimedia.priority=90
+# install drivers from negativo so they aren't crippled
+dnf5 config-manager setopt fedora-multimedia.priority=0
+dnf -y install --enablerepo fedora-multimedia \
+  libheif \
+  libva \
+  libva-intel-media-driver \
+  intel-vpl-gpu-rt \
+  intel-gmmlib \
+  intel-mediasdk \
+  mesa-dri-drivers \
+  mesa-filesystem \
+  mesa-libEGL \
+  mesa-libGL \
+  mesa-libgbm \
+  mesa-va-drivers \
+  mesa-vulkan-drivers
+
+# install codecs from negativo too
 dnf -y install --enablerepo fedora-multimedia \
   ffmpeg \
   libavcodec \
@@ -47,20 +63,4 @@ dnf -y install --enablerepo fedora-multimedia \
   libjxl \
   ffmpegthumbnailer
 
-# install drivers from negativo too
-dnf -y install --enablerepo fedora-multimedia \
-  libheif \
-  libva \
-  libva-intel-media-driver \
-  intel-vpl-gpu-rt \
-  intel-gmmlib \
-  intel-mediasdk \
-  mesa-dri-drivers \
-  mesa-filesystem \
-  mesa-libEGL \
-  mesa-libGL \
-  mes-libgbm \
-  mesa-va-drivers \
-  mesa-vulkan-drivers
-
-dnf5 config-manager setopt fedora-multimedia.priority=1
+dnf5 config-manager setopt fedora-multimedia.priority=99
