@@ -14,7 +14,6 @@ dnf -y install \
   gnome-settings-daemon \
   gnome-shell \
   gnome-user-docs \
-  gvfs-fuse \
   gvfs-goa \
   sane-backends-drivers-scanners \
   wget \

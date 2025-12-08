@@ -32,12 +32,10 @@ dnf -y install \
 
 # install drivers from negativo so they aren't crippled
 dnf5 config-manager setopt fedora-multimedia.priority=0
-dnf -y install --enablerepo fedora-multimedia \
+dnf -y distro-sync --from-repo=fedora-multimedia \
   libheif \
   libva \
-  libva-intel-media-driver \
   intel-vpl-gpu-rt \
-  intel-gmmlib \
   intel-mediasdk \
   mesa-dri-drivers \
   mesa-filesystem \
@@ -46,6 +44,10 @@ dnf -y install --enablerepo fedora-multimedia \
   mesa-libgbm \
   mesa-va-drivers \
   mesa-vulkan-drivers
+
+dnf -y install --enablerepo fedora-multimedia \
+  intel-gmmlib \
+  libva-intel-media-driver
 
 # install codecs from negativo too
 dnf -y install --enablerepo fedora-multimedia \
@@ -58,6 +60,7 @@ dnf -y install --enablerepo fedora-multimedia \
   libcamera-ipa \
   libheif \
   libcamera-tools \
+  libcamra-v4l2 \
   libfdk-aac \
   libimobiledevice-utils \
   libjxl \
