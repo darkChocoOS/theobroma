@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 set -eoux pipefail
+mkdir -p /var/roothome
 
 HOME_URL=https://github.com/darkChocoOS/theobroma
 echo "darkChocoOS" | tee "/etc/hostname"
@@ -47,6 +48,9 @@ systemctl enable --global gnome-keyring-daemon.service
 rm -rf /usr/lib/systemd/system/flatpak-add-fedora-repos.service
 systemctl enable flatpak-add-flathub-repos.service
 systemctl enable flatpak-preinstall.service
+
+rm -rf /usr/share/doc
+rm -rf /usr/bin/chsh
 
 KERNEL_VERSION="$(find "/usr/lib/modules" -maxdepth 1 -type d ! -path "/usr/lib/modules" -exec basename '{}' ';' | sort | tail -n 1)"
 export DRACUT_NO_XATTR=1

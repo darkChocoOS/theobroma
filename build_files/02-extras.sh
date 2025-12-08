@@ -2,6 +2,8 @@
 
 set -eoux pipefail
 
+cp -avf "/ctx/files"/. /
+
 # why is this not shipped by default
 dnf -y install \
   setools \
@@ -18,7 +20,6 @@ dnf -y install \
   brightnessctl \
   ddcutil \
   fastfetch \
-  gamescope \
   glycin-thumbnailer \
   gnome-keyring \
   gnome-keyring-pam \
