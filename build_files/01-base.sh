@@ -83,7 +83,6 @@ dnf -y swap --from-repo=fedora \
 dnf -y install --enablerepo copr:copr.fedorainfracloud.org:ublue-os:packages \
   uupd \
   ublue-os-just \
-  ublue-os-luks \
   ublue-os-udev-rules
 
 dnf5 config-manager setopt copr:copr.fedorainfracloud.org:ublue-os:flatpak-test.priority=90
