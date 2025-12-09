@@ -138,8 +138,8 @@ jobs:
         env:
           REGISTRY_USER: ${{ github.actor }}
           REGISTRY_PASSWORD: ${{ github.token }}
-          IMAGE_REGISTRY: ${{ steps.registry_case.outputs.lowercase }}
-          IMAGE_NAME: ${{ steps.image_case.outputs.lowercase }}
+          IMAGE_REGISTRY: ${{ env.IMAGE_REGISTRY }}
+          IMAGE_NAME: ${{ env.IMAGE_NAME }}
           TAGS: ${{ steps.metadata.outputs.tags }}
         run: |
           echo "${REGISTRY_PASSWORD}" | sudo podman login ghcr.io -u "${REGISTRY_USER}" --password-stdin
