@@ -115,6 +115,7 @@ jobs:
         run: |
           for tag in $TAG_LIST; do
             sudo podman tag localhost/${{env.IMAGE_NAME}}:${{env.DEFAULT_TAG}} localhost/${{env.IMAGE_NAME}}:$tag
+          done
           
       - name: Login to GitHub Container Registry
         uses: docker/login-action@5e57cd118135c172c3672efd75eb46360885c0ef # v3
