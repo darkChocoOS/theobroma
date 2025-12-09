@@ -8,13 +8,7 @@ dnf -y install \
   flatpak-builder \
   foundry \
   gcc-c++ \
-  git \
-  libvirt \
-  libvirt-daemon-kvm \
-  libvirt-nss \
-  podman-compose \
-  virt-install \
-  virt-manager
+  git
 
 dnf -y install --enablerepo terra \
   ghostty
