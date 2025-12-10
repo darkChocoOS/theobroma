@@ -1,6 +1,0 @@
-figure out wtf is up with nvidia
-
-move to fedora-bootc
-add proton vpn
-add niri
-clarify this is personal use only
