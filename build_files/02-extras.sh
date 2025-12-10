@@ -8,7 +8,6 @@ cp -avf "/ctx/files"/. /
 dnf -y install \
   setools \
   fscrypt \
-  google-noto-fonts-all \
   lshw \
   sbsign \
   borgbackup \
@@ -27,9 +26,16 @@ dnf -y install \
   orca \
   nautilus \
   gvfs-nfs \
-  glibc-all-langpacks \
   wl-clipboard \
   xdg-desktop-portal-gnome
+
+dnf install -y \
+    default-fonts-core-emoji \
+    google-noto-color-emoji-fonts \
+    google-noto-emoji-fonts \
+    google-noto-fonts-all \
+    glibc-all-langpacks \
+    default-fonts
 
 # install drivers from negativo so they aren't crippled
 dnf5 config-manager setopt fedora-multimedia.priority=0
