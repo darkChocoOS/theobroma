@@ -38,6 +38,7 @@ systemctl enable bootc-fetch-apply-updates
 systemctl enable supergfxd.service
 systemctl enable brew-setup.service
 systemctl enable uupd.timer
+systemctl enable rechunker-group-fix.service
 systemctl enable auditd
 systemctl enable firewalld
 systemctl enable input-remapper.service
