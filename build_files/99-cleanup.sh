@@ -31,6 +31,7 @@ sed -i 's|uupd|& --disable-module-distrobox|' /usr/lib/systemd/system/uupd.servi
 mkdir -p /etc/flatpak/remotes.d/
 curl --retry 3 -Lo /etc/flatpak/remotes.d/flathub.flatpakrepo https://dl.flathub.org/repo/flathub.flatpakrepo
 
+systemctl enable gdm.service
 systemctl enable systemd-timesyncd
 systemctl enable systemd-resolved.service
 systemctl preset systemd-resolved.service
@@ -42,9 +43,6 @@ systemctl enable rechunker-group-fix.service
 systemctl enable auditd
 systemctl enable firewalld
 systemctl enable input-remapper.service
-systemctl enable gdm.service
-systemctl enable --global gnome-keyring-daemon.socket
-systemctl enable --global gnome-keyring-daemon.service
 
 rm -rf /usr/lib/systemd/system/flatpak-add-fedora-repos.service
 systemctl enable flatpak-add-flathub-repos.service

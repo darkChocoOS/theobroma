@@ -96,16 +96,16 @@ jobs:
         run: |
           sudo podman build -t "localhost/${{env.IMAGE_NAME}}:${{env.DEFAULT_TAG}}" -f ./Containerfile .
 
-      - name: Rechunk Image
-        id: rechunker
-        run: |
-          sudo podman run --rm \
-            --privileged \
-            -v /var/lib/containers:/var/lib/containers \
-            "quay.io/fedora/fedora-bootc:latest" \
-            /usr/libexec/bootc-base-imagectl rechunk --max-layers 80 \
-                localhost/${{env.IMAGE_NAME}}:${{env.DEFAULT_TAG}} \
-                localhost/${{env.IMAGE_NAME}}:${{env.DEFAULT_TAG}}
+      # - name: Rechunk Image
+      #   id: rechunker
+      #   run: |
+      #     sudo podman run --rm \
+      #       --privileged \
+      #       -v /var/lib/containers:/var/lib/containers \
+      #       "quay.io/fedora/fedora-bootc:latest" \
+      #       /usr/libexec/bootc-base-imagectl rechunk --max-layers 80 \
+      #           localhost/${{env.IMAGE_NAME}}:${{env.DEFAULT_TAG}} \
+      #           localhost/${{env.IMAGE_NAME}}:${{env.DEFAULT_TAG}}
 
       - name: tag
         id: tag
