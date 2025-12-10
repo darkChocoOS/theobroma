@@ -17,7 +17,7 @@ dnf -y install \
   gnome-user-docs \
   gvfs-fuse \
   gvfs-goa \
-  gvfs-photo2 \
+  gvfs-gphoto2 \
   libsane-hpaio \
   sane-backends-drivers-scanners \
   wget \
