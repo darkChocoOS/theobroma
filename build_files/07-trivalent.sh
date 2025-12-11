@@ -96,3 +96,6 @@ do
 done
 
 echo -e '\nDone.'
+
+
+touch /etc/ld.so.preload
