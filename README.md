@@ -15,3 +15,4 @@ I used snippets and info from the following projects and libraries to make this,
 [diffuse](https://github.com/renner0e/diffuse/tree/main)
 [VedaOS](https://github.com/Lumaeris/vedaos)
 [bootc-tools](https://github.com/XeniaMeraki/bootc-tools)
+[trivalent-images](https://github.com/AtiusAmy/trivalent-images)
