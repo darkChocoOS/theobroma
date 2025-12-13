@@ -37,25 +37,8 @@ dnf install -y \
     glibc-all-langpacks \
     default-fonts
 
-# install drivers from negativo so they aren't crippled
+# install codecs from negativo so they aren't crippled
 dnf5 config-manager setopt fedora-multimedia.priority=0
-dnf -y distro-sync --from-repo=fedora-multimedia \
-  libheif \
-  libva \
-  intel-mediasdk \
-  mesa-dri-drivers \
-  mesa-filesystem \
-  mesa-libEGL \
-  mesa-libGL \
-  mesa-libgbm \
-  mesa-va-drivers \
-  mesa-vulkan-drivers
-
-dnf -y install --enablerepo fedora-multimedia \
-  intel-gmmlib \
-  libva-intel-media-driver
-
-# install codecs from negativo too
 dnf -y install --enablerepo fedora-multimedia \
   ffmpeg \
   libavcodec \
