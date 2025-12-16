@@ -2,7 +2,7 @@ FROM scratch as ctx
 
 COPY build_files /build
 COPY system_files /files
-COPY cosign.pub /files/etc/pki/containers/Theobroma.pub
+COPY cosign.pub /files/etc/pki/containers/theobroma.pub
 
 FROM quay.io/fedora/fedora-bootc:43
 
