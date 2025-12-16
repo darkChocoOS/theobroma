@@ -17,5 +17,4 @@ dnf -y install --enablerepo terra \
   ghostty
 
 dnf -y install --enablerepo copr:copr.fedorainfracloud.org:ublue-os:packages \
-  ublue-brew \
   ublue-os-libvirt-workarounds
