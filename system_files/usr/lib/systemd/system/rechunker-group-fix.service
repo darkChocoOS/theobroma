@@ -7,6 +7,7 @@ After=local-fs.target
 Type=oneshot
 ExecStart=rechunker-group-fix /etc/group
 ExecStart=rechunker-group-fix /etc/gshadow
+ExecStart=systemd-sysusers
 
 [Install]
 WantedBy=default.target multi-user.target
