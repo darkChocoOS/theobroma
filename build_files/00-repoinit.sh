@@ -37,18 +37,3 @@ dnf -y copr disable ublue-os/packages
 # ublue flatpak
 dnf -y copr enable ublue-os/flatpak-test
 dnf -y copr disable ublue-os/flatpak-test
-
-#  # proton (fuck that rpm tbh)
-#  tee /etc/yum.repos.d/protonvpn-stable.repo << 'EOF'
-#  #
-#  # ProtonVPN stable release
-#  #
-#  [protonvpn-fedora-stable]
-#  name = ProtonVPN Fedora Stable repository
-#  baseurl = https://repo.protonvpn.com/fedora-$releasever-stable
-#  enabled = 0
-#  gpgcheck = 1
-#  repo_gpgcheck=0
-#  skip_if_unavailable=true
-#  gpgkey = https://repo.protonvpn.com/fedora-$releasever-stable/public_key.asc
-#  EOF

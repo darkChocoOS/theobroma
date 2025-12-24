@@ -6,53 +6,50 @@ cp -avf "/ctx/files"/. /
 
 # why is this not shipped by default
 dnf -y install \
-  setools \
-  fscrypt \
-  lshw \
-  sbsign \
-  borgbackup \
-  gvfs-nfs \
-  ibus-mozc \
-  ibus-unikey \
-  apr \
-  apr-util \
   brightnessctl \
-  ddcutil \
+  cava \
+  chezmoi \
+  distrobox \
   fastfetch \
+  flatpak \
+  flatpak-builder \
+  foot \
+  foundry \
+  fpaste \
+  fzf \
+  git \
   glycin-thumbnailer \
-  gnome-keyring \
-  gnome-keyring-pam \
+  hyfetch \
   input-remapper \
+  just \
+  libvirt \
+  libvirt-daemon-kvm \
+  libvirt-nss \
+  openssh-askpass \
   orca \
-  nautilus \
-  gvfs-nfs \
+  pipewire \
+  steam-devices \
+  webp-pixbuf-loader \
+  wireplumber \
   wl-clipboard \
-  xdg-desktop-portal-gnome
+  wlsunset
+
+dnf -y install --enablerepo copr:copr.fedorainfracloud.org:ublue-os:packages \
+  ublue-os-libvirt-workarounds
 
 dnf install -y \
-    default-fonts-core-emoji \
-    google-noto-color-emoji-fonts \
-    google-noto-emoji-fonts \
-    google-noto-fonts-all \
-    glibc-all-langpacks \
-    default-fonts
+  default-fonts-core-emoji \
+  google-noto-color-emoji-fonts \
+  google-noto-emoji-fonts \
+  google-noto-fonts-all \
+  glibc-all-langpacks \
+  default-fonts
 
 # install codecs from negativo so they aren't crippled
-dnf5 config-manager setopt fedora-multimedia.priority=0
-dnf -y install --enablerepo fedora-multimedia \
-  ffmpeg \
-  libavcodec \
-  gstreamer1-plugins-{bad-free,bad-free-libs,good,base} \
-  lame{,-libs} \
-  libcamera \
-  libcamera-gstreamer \
-  libcamera-ipa \
-  libheif \
-  libcamera-tools \
-  libcamera-v4l2 \
-  libfdk-aac \
-  libimobiledevice-utils \
-  libjxl \
-  ffmpegthumbnailer
+dnf config-manager addrepo --from-repofile=https://negativo17.org/repos/fedora-multimedia.repo
+dnf config-manager setopt fedora-multimedia.enabled=0
+dnf -y install --enablerepo=fedora-multimedia \
+  -x PackageKit* \
+  ffmpeg libavcodec @multimedia gstreamer1-plugins-{bad-free,bad-free-libs,good,base} lame{,-libs} libjxl ffmpegthumbnailer
 
 dnf5 config-manager setopt fedora-multimedia.priority=99

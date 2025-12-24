@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
 
-set -eoux pipefail
 mkdir -p /var/roothome
 
 HOME_URL=https://github.com/darkChocoOS/theobroma
@@ -28,8 +27,14 @@ EOF
 # disable uupd checking for distrobox updates
 sed -i 's|uupd|& --disable-module-distrobox|' /usr/lib/systemd/system/uupd.service
 
+# add flathub repos
 mkdir -p /etc/flatpak/remotes.d/
 curl --retry 3 -Lo /etc/flatpak/remotes.d/flathub.flatpakrepo https://dl.flathub.org/repo/flathub.flatpakrepo
+curl --retry 3 -Lo /etc/flatpak/remotes.d/flathub-beta.flatpakrepo https://flathub.org/beta-repo/flathub-beta.flatpakrepo
+
+# fuck off fedora flatpaks
+rm -rf /usr/lib/systemd/system/flatpak-add-fedora-repos.service
+systemctl enable flatpak-add-flathub-repos.service
 
 systemctl enable gdm.service
 systemctl enable systemd-timesyncd
@@ -43,11 +48,10 @@ systemctl enable rechunker-group-fix.service
 systemctl enable auditd
 systemctl enable firewalld
 systemctl enable input-remapper.service
-
-rm -rf /usr/lib/systemd/system/flatpak-add-fedora-repos.service
-systemctl enable flatpak-add-flathub-repos.service
 systemctl enable flatpak-preinstall.service
+systemctl enable supergfxd.service
 
+# save space
 rm -rf /usr/share/doc
 rm -rf /usr/bin/chsh
 

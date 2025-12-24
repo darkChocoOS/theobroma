@@ -10,6 +10,8 @@ dnf -y install \
   gnome-color-manager \
   gnome-disk-utility \
   gnome-initial-setup \
+  gnome-keyring \
+  gnome-keyring-pam \
   gnome-remote-desktop \
   gnome-session \
   gnome-settings-daemon \
@@ -19,7 +21,11 @@ dnf -y install \
   gvfs-goa \
   gvfs-gphoto2 \
   libsane-hpaio \
+  nautilus \
   sane-backends-drivers-scanners \
   wget \
+  xdg-desktop-portal-gnome \
+  xdg-desktop=portal-gtk \
+  xdg-user-dirs \
   xdg-user-dirs-gtk
 

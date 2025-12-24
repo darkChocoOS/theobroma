@@ -34,5 +34,3 @@ dnf -y install --enablerepo terra \
 tee /usr/lib/bootc/kargs.d/01-HWE.toml << 'EOF'
 kargs = ["amdgpu.dcdebugmask=0x10"]
 EOF
-
-systemctl enable supergfxd.service
