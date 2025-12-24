@@ -49,3 +49,5 @@ dnf install -y \
 dnf -y install --enablerepo=fedora-multimedia \
   -x PackageKit* \
   ffmpeg libavcodec @multimedia gstreamer1-plugins-{bad-free,bad-free-libs,good,base} lame{,-libs} libjxl ffmpegthumbnailer
+
+fc-cache --force --really-force --system-only --verbose
