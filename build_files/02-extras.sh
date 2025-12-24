@@ -49,5 +49,3 @@ dnf install -y \
 dnf -y install --enablerepo=fedora-multimedia \
   -x PackageKit* \
   ffmpeg libavcodec @multimedia gstreamer1-plugins-{bad-free,bad-free-libs,good,base} lame{,-libs} libjxl ffmpegthumbnailer
-
-dnf5 config-manager setopt fedora-multimedia.priority=99
