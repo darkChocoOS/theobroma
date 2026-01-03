@@ -30,7 +30,6 @@ sed -i 's|uupd|& --disable-module-distrobox|' /usr/lib/systemd/system/uupd.servi
 # add flathub repos
 mkdir -p /etc/flatpak/remotes.d/
 curl --retry 3 -Lo /etc/flatpak/remotes.d/flathub.flatpakrepo https://dl.flathub.org/repo/flathub.flatpakrepo
-curl --retry 3 -Lo /etc/flatpak/remotes.d/flathub-beta.flatpakrepo https://flathub.org/beta-repo/flathub-beta.flatpakrepo
 
 # fuck off fedora flatpaks
 rm -rf /usr/lib/systemd/system/flatpak-add-fedora-repos.service

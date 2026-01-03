@@ -1,0 +1,15 @@
+[Flatpak Preinstall org.gnome.Calendar]
+Branch=stable
+isRuntime=false
+
+[Flatpak Preinstall org.gnome.clocks]
+Branch=stable
+isRuntime=false
+
+[Flatpak Preinstall org.gnome.TextEditor]
+Branch=stable
+isRuntime=false
+
+[Flatpak Preinstall io.github.kolunmi.Bazaar]
+Branch=stable
+isRuntime=false
