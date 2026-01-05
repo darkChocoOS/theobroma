@@ -25,6 +25,7 @@ dnf -y install \
   libvirt \
   libvirt-daemon-kvm \
   libvirt-nss \
+  lshw \
   openssh-askpass \
   orca \
   pipewire \
