@@ -57,7 +57,6 @@ dnf -y install \
   iwlwifi-dvm-firmware \
   iwlwifi-mvm-firmware \
   jmtpfs \
-  kernel-modules-extra \
   libcamera{,-{v4l2,gstreamer,tools}} \
   libimobiledevice \
   libimobiledevice-utils \
